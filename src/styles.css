@@ -1,1 +1,60 @@
-/* You can add global styles to this file, and also import other style files */
+@media (min-width: 992px) {
+  .mobile {
+    display: none;
+  }
+
+  .destop {
+    display: inherit;
+    z-index: 100;
+  }
+}
+
+@media (max-width: 991px) {
+  .mobile {
+    display: inherit;
+  }
+
+  .destop {
+    display: none;
+  }
+}
+
+@media (max-width:576px) {}
+
+
+
+
+.fill-light-down {
+  fill: #f2f2f2;
+
+  /* fill: url(#wave-color-down-light); */
+  filter: drop-shadow(3px 5px 1px rgb(26 26 26 / 0.1));
+}
+
+.fill-dark-down {
+  fill: #1a1a1a;
+  /* fill: url(#wave-color-down-dark) #1a1a1a; */
+  filter: drop-shadow(3px 5px 1px rgb(242 242 242 / 0.1));
+}
+
+.fill-light-up {
+  fill: #f2f2f2;
+
+  /* fill: url(#wave-color-down-light); */
+  filter: drop-shadow(3px -5px 1px rgb(26 26 26 / 0.1));
+}
+
+.fill-dark-up {
+  fill: #1a1a1a;
+  /* fill: url(#wave-color-down-dark) #1a1a1a; */
+  filter: drop-shadow(3px -5px 1px rgb(242 242 242 / 0.1));
+}
+
+
+
+
+.wave {
+  /* width: 100vw; */
+  transition: all .5s;
+
+}
