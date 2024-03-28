@@ -1,0 +1,64 @@
+<main id="start" [ngClass]="{'dark':  dark, 'light': !dark }">
+
+  <div class="btn-container" [ngClass]="{'top-0': !show}">
+    <label class="switch btn-color-mode-switch">
+      <input #mode (click)="clickme()" type="checkbox" name="color_mode" id="color_mode">
+      <label for="color_mode" data-on="Dark" data-off="Light" class="btn-color-mode-switch-inner"></label>
+    </label>
+  </div>
+
+
+
+
+  <!-- this only shows in width less than 992 -->
+  <button class="mobile hamburger-icon" (click)="bugz()" id="icon" [ngClass]="{'light':  dark, 'dark': !dark}">
+    <span class="icon-1 a" [ngClass]="{a:burger,'dark': dark, 'light': !dark}" id="a"></span>
+    <span class="icon-2 c" [ngClass]="{c:burger, 'dark': dark, 'light': !dark}" id="b"></span>
+    <span class="icon-3 b" [ngClass]="{b:burger, 'dark': dark, 'light': !dark}" id="c"></span>
+    <span class="clear"></span>
+  </button>
+  <!-- sliding menu  -->
+  <div class="sidenav" [ngClass]="{'sidenav-active':sidenav,'dark-all':  !dark, 'light-all': dark}">
+    <a (click)="bugz()" href="#Home">Home</a>
+    <a (click)="bugz()" href="#About">About</a>
+    <a (click)="bugz()" href="#Projects">Projects</a>
+  </div>
+
+  <!-- this shows when width is larger than 992 -->
+  <div class="destop position-fixed top-50 start-0 translate-middle-y " [ngClass]="{ 'unshow': !show}">
+    <nav id="nav-button-container" class="d-flex flex-column">
+      <a class="nav-button "
+        [ngClass]="{'nav-button-active':spy.spy==='home', 'light':  dark, 'dark': !dark, 'hide-nav-buttons':!show }"
+        href="#start">
+        Home <i class="bi bi-house"></i>
+      </a>
+      <a class="nav-button my-1"
+        [ngClass]="{'nav-button-active':spy.spy==='about', 'light':  dark, 'dark': !dark,'hide-nav-buttons':!show   }"
+        href="#About">About<i class="bi bi-question-diamond "></i></a>
+      <a class="nav-button "
+        [ngClass]="{'nav-button-active':spy.spy==='projects', 'light':  dark, 'dark': !dark, 'hide-nav-buttons':!show   }"
+        href="#Projects">Projects<i class="bi bi-tools"></i></a>
+    </nav>
+
+  </div>
+
+  <!-- <ngb-progressbar class=" sticky-top" type="dark-hamburger" [value]="state" [striped]="true" [animated]="true">
+
+    <i>{{state}}%</i>
+
+  </ngb-progressbar> -->
+
+  <div class="progress sticky-top progress-bar" [ngClass]="{ 'unshow': !show,'light':  !dark, 'dark': dark}"
+    role="progressbar" aria-label="Animated striped example" aria-valuenow=state aria-valuemin="0" aria-valuemax="100">
+    <div [ngClass]="{'light-progress':  dark, 'dark': !dark}"
+      class="progress-bar progress-bar-striped progress-bar-animated " style="width: {{state}}%">
+      <i>{{state}}%</i>
+    </div>
+  </div>
+
+
+  <div [ngClass]="{'dark-all':  dark, 'light-all': !dark}">
+    <app-content #spy [mode]="dark ? 'dark': 'light'"></app-content>
+  </div>
+
+</main>
